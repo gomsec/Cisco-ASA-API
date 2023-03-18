@@ -23,12 +23,11 @@ importlib.reload(acl)
 
 urllib3.disable_warnings()
 
-IP = '34.226.223.215'
+IP = ''
 URL = 'https://' + IP
 
 #Gets Token from ASA and stores it in an header.
 token = authentication.Token
-#token = authentication.Token1
 Header = authentication.Header
 
 #Get all standard IN ACLs from ASA
@@ -51,7 +50,6 @@ def get_acl_objectid(ip, aclname):
         print("No Data returned")
     else:
         data_json = r.json()
-        #print("JSON Response: ", data_json)
         acl_objectId = data_json['items'][0]['objectId']
     return acl_objectId
 
@@ -80,7 +78,6 @@ def add_ext_acl(ip, aclName, rule ):
 def del_ext_acl(ip, aclName):
     data_json = None
     acl_objectId= get_acl_objectid(ip, aclName)
-    #acl_objectId = acl_data['objectId']
     # API-URL to add extended ACL Objects
     url = 'https://' + ip + '/api/objects/extendedacls/' + aclName + '/aces/' + acl_objectId
     # Make a POST request to ASA API
