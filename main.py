@@ -31,4 +31,6 @@ acl = asa.add_ext_acl(asa.IP, aclName, rule_json)       #Upload ACL to ASA
 print(acl)
 ext_acl = asa.get_all_ext_acl(asa.IP)                   #Read all ACL from ASA
 print(ext_acl)
-delete = authentication.del_X_auth_token(token, asa.IP) #Delete Authentication Token
+delacl = asa.del_ext_acl(asa.IP, aclName)
+print(delacl)                  #Delete ACL from ASA
+# delete = authentication.del_X_auth_token(token, asa.IP) #Delete Authentication Token

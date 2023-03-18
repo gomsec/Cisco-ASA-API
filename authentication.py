@@ -36,6 +36,7 @@ def get_X_auth_token(ip):
     #Search for the token in the header and stores the value.
     else:
         token = r.headers['x-auth-token']
+        print("Token: " + token)
     return token
 
 #Delete Token on ASA
